@@ -2,23 +2,19 @@
 // PHP Script to handle Database Connection and Auto-Initialization
 // Located in database/db.php
 
-$host = 'localhost';
+$db_host = '127.0.0.1'; // Use IP to avoid socket errors
 $db_user = 'np03cs4a240297';
-$db_name = 'np03cs4a240297';
-// $db_password = '';
 $db_pass = 'Q57i3rHBX9';
-// $db_name = 'vehicle_rental_db';
-
-
+$db_name = 'np03cs4a240297';
 
 try {
-    // 1. Connect to MySQL Server
-    $pdo = new PDO("mysql:host=$host", $db_user, $db_pass);
+    // 1. Connect directly to the specific Database
+    $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8mb4", $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // 2. Create Database if not exists
-    $pdo->exec("CREATE DATABASE IF NOT EXISTS `$db_name` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
-    $pdo->exec("USE `$db_name`");
+    // 2. (Skipped) Database creation is not allowed on shared hosting. 
+    // We connect directly to the existing DB above.
+
 
     // 3. Create Tables
     $sql = "
@@ -88,4 +84,3 @@ try {
 }
 
 return $pdo;
-?>
