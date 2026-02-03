@@ -1,4 +1,5 @@
-require_once __DIR__ . '/../bootstrap.php';
+<?php
+require_once __DIR__ . '/../includes/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $vehicle_id = (int)$_POST['vehicle_id'];

@@ -17,4 +17,3 @@ if (isset($_GET['id'])) {
 // Fallback to placeholder if no image found in DB
 header("Location: https://placehold.co/600x400/1e293b/f8fafc?text=No+Image");
 exit();
-?>

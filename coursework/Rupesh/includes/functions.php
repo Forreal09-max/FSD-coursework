@@ -49,4 +49,3 @@ function getImagePath($path, $brand = 'Vehicle', $id = null) {
     }
     return BASE_URL . ltrim($path, '/');
 }
-?>
